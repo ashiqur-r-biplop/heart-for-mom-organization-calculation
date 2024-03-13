@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 20px auto;
 }
 
@@ -38,19 +38,19 @@ h1 {
 .input-box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: rgba(0, 255, 255, 0.164);
-    padding: 20px 0px;
+    padding: 20px 30px;
     font-family: Arial, sans-serif;
     margin: 0px;
     border-bottom: 1px solid rgba(33, 155, 155, 0.329);
 }
-
-.cost-title {
-    padding: 0px 0px 0px 30px;
-}
-
-.amount {
-    padding: 0px 30px 0px 0px;
+.input-box input {
+    width: 100px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding: 0px 10px;
 }
 
 hr {
@@ -62,7 +62,7 @@ hr {
     justify-content: space-between;
     align-items: center;
     background: #c7c7c742;
-    padding: 10px 0px;
+    padding: 20px 30px;
 }
 
 .dollar-icon {
@@ -88,12 +88,14 @@ hr {
     grid-column: 8/ 13;
 
 }
-.Variable-Expenses-col-1{
+
+.Variable-Expenses-col-1 {
     background-color: #fff;
     padding: 40px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .Fixed-expenses {
     margin-top: 10px;
 }
