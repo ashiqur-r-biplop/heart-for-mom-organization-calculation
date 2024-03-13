@@ -18,20 +18,30 @@
                         <p class="">Monthly Income</p>
                         <div>
                             <span class="dollar-icon">$</span>
-                            <input type="text">
+                            <input autocomplete="off" oninput="calculateAmountForBills()" id="Monthly_Income"
+                                type="text">
                         </div>
                     </div>
-                    <p class="Tithes input-box"><span class="cost-title">Tithes( 10% of income) calculation
-                        </span><span class="amount"><span class="dollar-icon">$</span> 100</span>
+                    <p class="Tithes input-box">
+                        <span class="cost-title">Tithes( 10% of income) calculation</span>
+                        <span class="amount">
+                            <span class="dollar-icon">$</span> <span id="Tithes_amount"></span>
+                        </span>
                     </p>
 
-                    <p class="Savings input-box"><span class="cost-title">Savings (10% of income) calculation
-                        </span><span class="amount"><span class="dollar-icon">$</span> 100</span>
+                    <p class="Tithes input-box">
+                        <span class="cost-title">Savings (10% of income) calculation</span>
+                        <span class="amount">
+                            <span class="dollar-icon">$</span> <span id="Savings_amount"></span>
+                        </span>
                     </p>
                     <hr>
-                    <p class="Savings input-total"><span class="cost-title">Net Amount for Bills & Other Expenses <br>
+                    <p class="Savings input-total">
+                        <span class="cost-title">Net Amount for Bills & Other Expenses <br>
                             (monthly income-tithes-savings= Net)
-                        </span><span class="amount"><span class="dollar-icon">$</span> 300</span>
+                        </span>
+                        <span class="amount"><span class="dollar-icon">$</span><span id="netAmountForBills"></span>
+                        </span>
                     </p>
                 </div>
             </div>
@@ -44,121 +54,128 @@
                             <p class="">Mortgage</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="mortgage" autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Car Note</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="carNote"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Insurance</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="insurance"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Credit Card</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="creditCard"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Internet</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="internet"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Cable</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="cable"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Cell Phone</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="cellPhone"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Security System</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="securitySystem"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Electric</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="electric"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Water</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="water"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Other Utilies</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="otherUtilies"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Child Care/ Tuition</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="childCareTuition"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Student Loans</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="studentLoans"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Other Loans</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="otherLoans"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">House Keeper</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="houseKeeper"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Lawn Care</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="lawnCare"  autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
                         <div class="expenses-input-box">
                             <p class="">Other monthly fixed expenses</p>
                             <div>
                                 <span class="dollar-icon">$</span>
-                                <input type="text">
+                                <input id="monthlyFixedExpenses" autocomplete="off" class="numberInput" type="text">
                             </div>
                         </div>
+                        <p class="Savings input-total">
+                            <span class="cost-title">Total Monthly Fixed Expenses <br>
+                                (row 11 thru row 27 total)
+                            </span>
+                            <span class="amount"><span class="dollar-icon">$</span><span id="totalExpenses"></span>
+                            </span>
+                        </p>
                     </div>
                 </div>
                 <div class="Variable-Expenses-col">

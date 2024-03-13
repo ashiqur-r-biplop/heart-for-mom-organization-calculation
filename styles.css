@@ -45,12 +45,20 @@ h1 {
     margin: 0px;
     border-bottom: 1px solid rgba(33, 155, 155, 0.329);
 }
+
 .input-box input {
     width: 100px;
     height: 40px;
     border: none;
     outline: none;
     padding: 0px 10px;
+    
+}
+
+input {
+    text-align: end;
+    font-size: 18px;
+    border-radius: 10px 0px;
 }
 
 hr {
