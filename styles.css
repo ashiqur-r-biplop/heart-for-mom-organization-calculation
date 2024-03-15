@@ -52,7 +52,7 @@ h1 {
     border: none;
     outline: none;
     padding: 0px 10px;
-    
+
 }
 
 input {
@@ -123,4 +123,37 @@ hr {
     outline: none;
     border: none;
     padding: 5px 10px;
+}
+
+.drop-down-box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 50px;
+}
+
+.drop-down-box .month-drop-down-box select,
+.drop-down-box .year-drop-down-box select {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background-color: #c7c7c742;
+    cursor: pointer;
+}
+
+.usingYourIncome {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 30px;
+}
+
+.usingYourIncome select {
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    background-color: #c7c7c742;
+    cursor: pointer;
 }

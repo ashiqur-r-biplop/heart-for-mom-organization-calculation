@@ -44,52 +44,30 @@ const lawnCare = document.getElementById("lawnCare");
 const monthlyFixedExpenses = document.getElementById("monthlyFixedExpenses");
 // Get all input elements with class "numberInput"
 const expensesInputs = document.querySelectorAll(".numberInput");
+const VariableExpenses = document.querySelectorAll(".VariableExpenses");
 const totalSpan = document.getElementById("totalExpenses");
-
+const totalVariableExpenses = document.getElementById("totalVariableExpenses");
 function calculateTotal() {
   let total = 0;
-  numberInputs.forEach((input) => {
+  expensesInputs.forEach((input) => {
     total += parseFloat(input.value) || 0;
   });
   totalSpan.textContent = total;
 }
-
-calculateTotal();
-
-numberInputs.forEach((input) => {
+expensesInputs.forEach((input) => {
   input.addEventListener("input", calculateTotal);
 });
+calculateTotal();
+function calculateTotalVariableExpenses() {
+  let total = 0;
+  VariableExpenses.forEach((input) => {
+    total += parseFloat(input.value) || 0;
+  });
+  totalVariableExpenses.textContent = total;
+}
+VariableExpenses.forEach((input) => {
+  input.addEventListener("input", calculateTotalVariableExpenses);
+});
+calculateTotalVariableExpenses();
+
 calculateAmountForBills();
-/* 
-insurance
-    ? parseFloat(insurance.value)
-    : 0 + creditCard
-    ? parseFloat(creditCard.value)
-    : 0 + internet
-    ? parseFloat(internet.value)
-    : 0 + cable
-    ? parseFloat(cable.value)
-    : 0 + cellPhone
-    ? parseFloat(cellPhone.value)
-    : 0 + securitySystem
-    ? parseFloat(securitySystem.value)
-    : 0 + electric
-    ? parseFloat(electric.value)
-    : 0 + water
-    ? parseFloat(water.value)
-    : 0 + otherUtilies
-    ? parseFloat(otherUtilies.value)
-    : 0 + childCareTuition
-    ? parseFloat(childCareTuition.value)
-    : 0 + studentLoans
-    ? parseFloat(studentLoans.value)
-    : 0 + otherLoans
-    ? parseFloat(otherLoans.value)
-    : 0 + houseKeeper
-    ? parseFloat(houseKeeper.value)
-    : 0 + lawnCare
-    ? parseFloat(lawnCare.value)
-    : 0 + monthlyFixedExpenses
-    ? parseFloat(monthlyFixedExpenses.value)
-    : 0;
-*/
