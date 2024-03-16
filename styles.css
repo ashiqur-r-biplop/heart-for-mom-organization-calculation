@@ -10,7 +10,6 @@
 .container {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
 }
 
 .container-calculate {
@@ -161,6 +160,10 @@ hr {
     text-align: end;
 }
 
+.expenses-input-box input:focus {
+    border: 2px solid #B1862F;
+}
+
 .drop-down-box {
     display: flex;
     justify-content: end;
@@ -238,3 +241,5 @@ hr {
 .NetMonthlyWealth {
     margin-top: 20px;
 }
+
+@media screen and (min-width: 0px) and (max-width: 450px) {}
