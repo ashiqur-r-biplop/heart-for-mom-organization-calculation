@@ -14,17 +14,6 @@ const monthlyIncome = document.getElementById("Monthly_Income");
 const tithesAmount = document.getElementById("Tithes_amount");
 const savingsAmount = document.getElementById("Savings_amount");
 const netAmountForBills = document.getElementById("netAmountForBills");
-const calculateAmountForBills = () => {
-  const inputValue = monthlyIncome.value;
-  const tithesIncome = (parseFloat(inputValue) / 100) * 10;
-  const savingsAmountPerMonth = (parseFloat(inputValue) / 100) * 10;
-  tithesAmount.textContent = tithesIncome ? tithesIncome.toFixed(2) : 0;
-  savingsAmount.textContent = savingsAmountPerMonth
-    ? savingsAmountPerMonth?.toFixed(2)
-    : 0;
-  const TotalAmount = inputValue - (tithesIncome + savingsAmountPerMonth);
-  netAmountForBills.textContent = TotalAmount ? TotalAmount?.toFixed(2) : 0;
-};
 const mortgage = document.getElementById("mortgage");
 const carNote = document.getElementById("carNote");
 const insurance = document.getElementById("insurance");
@@ -47,27 +36,58 @@ const expensesInputs = document.querySelectorAll(".numberInput");
 const VariableExpenses = document.querySelectorAll(".VariableExpenses");
 const totalSpan = document.getElementById("totalExpenses");
 const totalVariableExpenses = document.getElementById("totalVariableExpenses");
+const netAmount = document.getElementById("netAmountForBill");
+const fixedExpensesWealth = document.getElementById("fixedExpensesWealth");
+const variableExpensesWealth = document.getElementById(
+  "variableExpensesWealth"
+);
+const NetMonthlyWealth = document.getElementById("NetMonthlyWealth");
+const calculateAmountForBills = () => {
+  const inputValue = monthlyIncome.value;
+  const tithesIncome = (parseFloat(inputValue) / 100) * 10;
+  const savingsAmountPerMonth = (parseFloat(inputValue) / 100) * 10;
+  tithesAmount.textContent = tithesIncome ? tithesIncome.toFixed(2) : 0;
+  savingsAmount.textContent = savingsAmountPerMonth
+    ? savingsAmountPerMonth?.toFixed(2)
+    : 0;
+  const TotalAmount = inputValue - (tithesIncome + savingsAmountPerMonth);
+  netAmountForBills.textContent = TotalAmount ? TotalAmount?.toFixed(2) : 0;
+  calculateNetMonthWealth();
+};
 function calculateTotal() {
   let total = 0;
   expensesInputs.forEach((input) => {
     total += parseFloat(input.value) || 0;
   });
   totalSpan.textContent = total;
+  calculateNetMonthWealth();
 }
 expensesInputs.forEach((input) => {
   input.addEventListener("input", calculateTotal);
 });
-calculateTotal();
 function calculateTotalVariableExpenses() {
   let total = 0;
   VariableExpenses.forEach((input) => {
     total += parseFloat(input.value) || 0;
   });
   totalVariableExpenses.textContent = total;
+  calculateNetMonthWealth();
 }
 VariableExpenses.forEach((input) => {
   input.addEventListener("input", calculateTotalVariableExpenses);
 });
-calculateTotalVariableExpenses();
 
+function calculateNetMonthWealth() {
+  const netAmountWealth = parseFloat(netAmountForBills.innerText) || 0;
+  const fixedExpenses = parseFloat(totalSpan.innerText) || 0;
+  const variableExpenses = parseFloat(totalVariableExpenses.innerText) || 0;
+  netAmount.innerText = netAmountForBills.innerText;
+  fixedExpensesWealth.innerText = totalSpan.innerText;
+  variableExpensesWealth.innerText = totalVariableExpenses.innerText;
+  const total = netAmountWealth - (fixedExpenses + variableExpenses);
+  NetMonthlyWealth.innerText = total || 0;
+}
 calculateAmountForBills();
+calculateTotal();
+calculateTotalVariableExpenses();
+calculateNetMonthWealth();

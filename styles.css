@@ -1,32 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-body {
+.container {
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
 }
 
-.container {
+.container-calculate {
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 0px auto;
+    padding: 20px 0px;
 }
 
-h1 {
-    text-align: center;
+.calculation-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #fff;
-    padding: 40px 0px;
-    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: poppins;
+    padding: 40px;
+    border-radius: 5px;
+    text-align: center;
+
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #ff06b7;
 }
 
-.form {
-    margin-top: 20px;
+.calculate-topbar-imgbox {
+    width: 150px;
+    height: 150px;
 }
+
+.calculate-topbar-imgbox img {
+    width: 100%;
+}
+
 
 .income-tithes-savings {
     background-color: #fff;
@@ -40,27 +57,31 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
-    font-family: Arial, sans-serif;
+    font-family: serif;
     margin: 0px;
-    background-color: #b1862f9a;
+    background-color: #E4DCD1;
     border-bottom: 1px solid #B1862F;
     color: #000000;
-    font-family: script;
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
 }
 
 .input-box input {
-    width: 100px;
-    height: 40px;
-    border: none;
+    width: 200px;
+    height: 60px;
     outline: none;
     padding: 0px 10px;
-    color: #B1862F;
+    color: #000000;
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    border: 2px transparent;
+    border-radius: 10px 0px;
+    text-align: end;
 }
 
-input {
-    text-align: end;
-    font-size: 18px;
-    border-radius: 10px 0px;
+
+.input-box input:focus {
+    border: 2px solid #B1862F;
 }
 
 hr {
@@ -72,10 +93,13 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #000000;
+    background: #ff06b7;
     padding: 20px 30px;
-    color: #ff06b7;
-    font-family: serif;
+    color: #000;
+    ;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    font-size: 24px;
 }
 
 .dollar-icon {
@@ -117,27 +141,32 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #b1862f9a;
+    background-color: #E4DCD1;
     border-bottom: 1px solid #B1862F;
-    color: #000000;
-    padding: 10px 20px 10px 20px;
+    padding: 30px 20px 30px 20px;
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
 }
 
 .expenses-input-box input {
-    width: 100px;
-    height: 30px;
+    width: 200px;
+    height: 60px;
     outline: none;
-    border: none;
-    padding: 5px 10px;
-    color: #B1862F;
+    padding: 0px 10px;
+    color: #000000;
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    border: 2px transparent;
+    border-radius: 10px 0px;
+    text-align: end;
 }
 
 .drop-down-box {
-    margin-top: 20px;
     display: flex;
-    justify-content: start;
+    justify-content: end;
     align-items: start;
-    gap: 50px;
+    gap: 10px;
+    margin: 20px 0px;
 }
 
 .drop-down-box .month-drop-down-box select,
@@ -145,23 +174,32 @@ hr {
     padding: 10px 20px;
     border: none;
     outline: none;
-    background-color: #000;
+    background-color: #ff06b7;
     color: #e4dcd1;
     cursor: pointer;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
 }
 
 .drop-down-box .month-drop-down-box label,
 .drop-down-box .year-drop-down-box label {
     font-weight: bold;
-    color: #ff06b7;
+    color: #000;
+    font-size: 24px;
+    font-family: "Playfair Display", serif;
 }
 
 .usingYourIncome {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     gap: 30px;
+}
+
+.usingYourIncome p {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
 }
 
 .usingYourIncome select {
@@ -173,23 +211,30 @@ hr {
 }
 
 .Fixed-Expenses-title {
-    font-size: 26px;
-    font-family: poppins;
+    font-size: 42px;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 600;
+    color: #ff06b7;
+    padding: 20px 0px;
 }
 
-input {
-    border: 2px transparent;
-}
 
-input:focus {
-    border: 2px solid #B1862F;
-}
 
 .usingYourIncome select {
     padding: 10px 20px;
     border: none;
     outline: none;
-    background-color: #000;
+    background-color: #ff06b7;
     color: #e4dcd1;
     cursor: pointer;
+}
+
+.input-and-dollar-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.NetMonthlyWealth {
+    margin-top: 20px;
 }
