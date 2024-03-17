@@ -24,23 +24,21 @@
     justify-content: space-between;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 40px;
+    padding: 0px 20px;
     border-radius: 5px;
     text-align: center;
 
     font-family: "Inter Tight", sans-serif;
     font-weight: 600;
-    font-size: 32px;
+    font-size: 30px;
     color: #ff06b7;
 }
 
-.calculate-topbar-imgbox {
-    width: 150px;
-    height: 150px;
-}
 
 .calculate-topbar-imgbox img {
-    width: 100%;
+    width: 300px;
+    height: 250px;
+    object-fit: contain;
 }
 
 
@@ -241,8 +239,12 @@ hr {
 .NetMonthlyWealth {
     margin-top: 20px;
 }
+
 /* responsive design (min-width: 840px) and (max-width: 1150px) */
 @media screen and (min-width: 840px) and (max-width: 1150px) {
+    .calculate-topbar-imgbox img {
+        width: 250px;
+    }
 
     .container-calculate {
         margin: 0px 10px;
@@ -276,8 +278,12 @@ hr {
     }
 
 }
+
 /* responsive design (min-width: 600px) and (max-width: 840px) */
 @media screen and (min-width: 600px) and (max-width: 840px) {
+    .calculate-topbar-imgbox img {
+        width: 200px;
+    }
 
     .container-calculate {
         margin: 0px 10px;
@@ -326,8 +332,17 @@ hr {
         height: 50px;
     }
 }
+
 /* responsive design (min-width: 0px) and (max-width: 600px) */
 @media screen and (min-width: 0px) and (max-width: 600px) {
+    .calculation-topbar {
+        padding: 20px;
+    }
+
+    .calculate-topbar-imgbox img {
+        width: 200px;
+        height: 180px;
+    }
 
     .container-calculate {
         margin: 0px 10px;
@@ -386,10 +401,12 @@ hr {
         width: 100px;
         height: 50px;
     }
-    .Fixed-Expenses-title{
+
+    .Fixed-Expenses-title {
         font-size: 26px;
     }
-    .usingYourIncome p{
+
+    .usingYourIncome p {
         font-size: 16px;
     }
 }
