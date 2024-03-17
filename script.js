@@ -3,10 +3,27 @@ const numberInputs = document.querySelectorAll("input[type='text']");
 
 numberInputs.forEach((input) => {
   input.addEventListener("input", function (event) {
-    const sanitizedValue = event.target.value.replace(/[^0-9]/g, "");
+    // Remove all non-digit characters except the decimal point
+    let sanitizedValue = event.target.value.replace(/[^\d.]/g, "");
+
+    // If the input has a decimal point, split the value into integer and decimal parts
+    if (sanitizedValue.includes(".")) {
+      const parts = sanitizedValue.split(".");
+
+      // Format the integer part with commas every three digits from the right
+      const integerPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      // Reconstruct the value with commas and the decimal part
+      sanitizedValue = integerPart + (parts.length > 1 ? "." + parts[1] : "");
+    } else {
+      // Format the entire input value with commas every three digits from the right
+      sanitizedValue = sanitizedValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     event.target.value = sanitizedValue;
   });
 });
+
 // key press off with out number
 
 const monthlyIncome = document.getElementById("Monthly_Income");
@@ -44,22 +61,47 @@ const variableExpensesWealth = document.getElementById(
 const NetMonthlyWealth = document.getElementById("NetMonthlyWealth");
 const calculateAmountForBills = () => {
   const inputValue = monthlyIncome.value;
-  const tithesIncome = (parseFloat(inputValue) / 100) * 10;
-  const savingsAmountPerMonth = (parseFloat(inputValue) / 100) * 10;
-  tithesAmount.textContent = tithesIncome ? tithesIncome.toFixed(2) : 0;
-  savingsAmount.textContent = savingsAmountPerMonth
+  const tithesIncome = (parseFloat(inputValue.replace(/,/g, "")) / 100) * 10;
+  const savingsAmountPerMonth =
+    (parseFloat(inputValue.replace(/,/g, "")) / 100) * 10;
+
+  const tithesComma = tithesIncome ? tithesIncome.toFixed(2) : 0;
+  const savingComma = savingsAmountPerMonth
     ? savingsAmountPerMonth?.toFixed(2)
     : 0;
-  const TotalAmount = inputValue - (tithesIncome + savingsAmountPerMonth);
-  netAmountForBills.textContent = TotalAmount ? TotalAmount?.toFixed(2) : 0;
+  const savingAmountComma = parseFloat(savingComma)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  savingsAmount.textContent = savingAmountComma;
+
+  const tithesAmountComma = parseFloat(tithesComma)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  tithesAmount.textContent = tithesAmountComma;
+  const TotalAmount =
+    parseFloat(inputValue.replace(/,/g, "")) -
+    (tithesIncome + savingsAmountPerMonth);
+
+  const netAmountForBillsComma = TotalAmount ? TotalAmount?.toFixed(2) : 0;
+  const monthlyIncomeComma = parseFloat(netAmountForBillsComma)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  netAmountForBills.textContent = monthlyIncomeComma;
+
+  // Set the replaced value back to the input field
+
   calculateNetMonthWealth();
 };
 function calculateTotal() {
   let total = 0;
+
   expensesInputs.forEach((input) => {
-    total += parseFloat(input.value) || 0;
+    total += parseFloat(input.value.replace(/,/g, "")) || 0;
   });
-  totalSpan.textContent = total;
+  const totalComma = parseFloat(total)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  totalSpan.textContent = totalComma;
   calculateNetMonthWealth();
 }
 expensesInputs.forEach((input) => {
@@ -68,9 +110,12 @@ expensesInputs.forEach((input) => {
 function calculateTotalVariableExpenses() {
   let total = 0;
   VariableExpenses.forEach((input) => {
-    total += parseFloat(input.value) || 0;
+    total += parseFloat(input.value.replace(/,/g, "")) || 0;
   });
-  totalVariableExpenses.textContent = total;
+  const totalComma = parseFloat(total)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  totalVariableExpenses.textContent = totalComma;
   calculateNetMonthWealth();
 }
 VariableExpenses.forEach((input) => {
@@ -78,15 +123,27 @@ VariableExpenses.forEach((input) => {
 });
 
 function calculateNetMonthWealth() {
-  const netAmountWealth = parseFloat(netAmountForBills.innerText) || 0;
-  const fixedExpenses = parseFloat(totalSpan.innerText) || 0;
-  const variableExpenses = parseFloat(totalVariableExpenses.innerText) || 0;
+  const netAmountWealth =
+    parseFloat(netAmountForBills.innerText.replace(/,/g, "")) || 0;
+  const fixedExpenses = parseFloat(totalSpan.innerText.replace(/,/g, "")) || 0;
+  const variableExpenses =
+    parseFloat(totalVariableExpenses.innerText.replace(/,/g, "")) || 0;
   netAmount.innerText = netAmountForBills.innerText;
   fixedExpensesWealth.innerText = totalSpan.innerText;
   variableExpensesWealth.innerText = totalVariableExpenses.innerText;
-  const total = netAmountWealth - (fixedExpenses + variableExpenses);
-  NetMonthlyWealth.innerText = total || 0;
+  const ExpensesTotal = parseFloat(fixedExpenses.toString().replace(/,/g, "")) +
+  parseFloat(variableExpenses.toString().replace(/,/g, ""))
+  const total = parseFloat(netAmountWealth) - ExpensesTotal;
+  // const netAmountVariableExpenseMinus = parseFloat(netAmountWealth) - parseFloat(variableExpenses.toString().replace(/,/g, "")) 
+  // const netAmountFixedExpenseMinus = parseFloat(netAmountWealth) - parseFloat(fixedExpenses.toString().replace(/,/g, "")) 
+  NetMonthlyWealth.innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    // netAmountWealth === 0 ? ExpensesTotal.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    //   : netAmountWealth ? fixedExpenses === 0 :
+    //   netAmountVariableExpenseMinus ? variableExpenses === 0
+    //   ? netAmountFixedExpenseMinus
+    //   : total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 calculateAmountForBills();
 calculateTotal();
 calculateTotalVariableExpenses();
