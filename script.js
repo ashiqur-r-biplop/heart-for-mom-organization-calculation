@@ -131,17 +131,14 @@ function calculateNetMonthWealth() {
   netAmount.innerText = netAmountForBills.innerText;
   fixedExpensesWealth.innerText = totalSpan.innerText;
   variableExpensesWealth.innerText = totalVariableExpenses.innerText;
-  const ExpensesTotal = parseFloat(fixedExpenses.toString().replace(/,/g, "")) +
-  parseFloat(variableExpenses.toString().replace(/,/g, ""))
+  const ExpensesTotal =
+    parseFloat(fixedExpenses.toString().replace(/,/g, "")) +
+    parseFloat(variableExpenses.toString().replace(/,/g, ""));
   const total = parseFloat(netAmountWealth) - ExpensesTotal;
-  // const netAmountVariableExpenseMinus = parseFloat(netAmountWealth) - parseFloat(variableExpenses.toString().replace(/,/g, "")) 
-  // const netAmountFixedExpenseMinus = parseFloat(netAmountWealth) - parseFloat(fixedExpenses.toString().replace(/,/g, "")) 
-  NetMonthlyWealth.innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    // netAmountWealth === 0 ? ExpensesTotal.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    //   : netAmountWealth ? fixedExpenses === 0 :
-    //   netAmountVariableExpenseMinus ? variableExpenses === 0
-    //   ? netAmountFixedExpenseMinus
-    //   : total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  NetMonthlyWealth.innerText =
+    parseFloat(netAmountWealth) === 0
+      ? ExpensesTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      : total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 calculateAmountForBills();
