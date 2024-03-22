@@ -58,6 +58,9 @@ const fixedExpensesWealth = document.getElementById("fixedExpensesWealth");
 const variableExpensesWealth = document.getElementById(
   "variableExpensesWealth"
 );
+const dynamicBgTotalNetWorth = document.getElementById(
+  "NetMonthlyWealthDaynamicColor"
+);
 const NetMonthlyWealth = document.getElementById("NetMonthlyWealth");
 const calculateAmountForBills = () => {
   const inputValue = monthlyIncome.value;
@@ -84,7 +87,7 @@ const calculateAmountForBills = () => {
 
   const netAmountForBillsComma = TotalAmount ? TotalAmount?.toFixed(2) : 0;
   const monthlyIncomeComma = parseFloat(netAmountForBillsComma)
-    .toString()
+    .toFixed(2)
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   netAmountForBills.textContent = monthlyIncomeComma;
 
@@ -99,7 +102,7 @@ function calculateTotal() {
     total += parseFloat(input.value.replace(/,/g, "")) || 0;
   });
   const totalComma = parseFloat(total)
-    .toString()
+    .toFixed(2)
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   totalSpan.textContent = totalComma;
   calculateNetMonthWealth();
@@ -113,7 +116,7 @@ function calculateTotalVariableExpenses() {
     total += parseFloat(input.value.replace(/,/g, "")) || 0;
   });
   const totalComma = parseFloat(total)
-    .toString()
+    .toFixed(2)
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   totalVariableExpenses.textContent = totalComma;
   calculateNetMonthWealth();
@@ -132,16 +135,26 @@ function calculateNetMonthWealth() {
   fixedExpensesWealth.innerText = totalSpan.innerText;
   variableExpensesWealth.innerText = totalVariableExpenses.innerText;
   const ExpensesTotal =
-    parseFloat(fixedExpenses.toString().replace(/,/g, "")) +
-    parseFloat(variableExpenses.toString().replace(/,/g, ""));
+    parseFloat(fixedExpenses.toFixed(2).replace(/,/g, "")) +
+    parseFloat(variableExpenses.toFixed(2).replace(/,/g, ""));
   const total = parseFloat(netAmountWealth) - ExpensesTotal;
-  NetMonthlyWealth.innerText =
-    parseFloat(netAmountWealth) === 0
-      ? ExpensesTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-      : total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  NetMonthlyWealth.innerText = total
+    .toFixed(2)
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  total > 100
+    ? (dynamicBgTotalNetWorth.style.backgroundColor = "#1fb655")
+    : total <= 100 && total > 0
+    ? (dynamicBgTotalNetWorth.style.backgroundColor = "yellow")
+    : total == 0
+    ? (dynamicBgTotalNetWorth.style.backgroundColor = "#ff06b7")
+    : (dynamicBgTotalNetWorth.style.backgroundColor = "red");
 }
 
 calculateAmountForBills();
 calculateTotal();
 calculateTotalVariableExpenses();
 calculateNetMonthWealth();
+/*  parseFloat(netAmountWealth) === 0
+      ? ExpensesTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      : total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); */
