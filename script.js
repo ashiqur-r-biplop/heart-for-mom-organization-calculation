@@ -62,6 +62,9 @@ const dynamicBgTotalNetWorth = document.getElementById(
   "NetMonthlyWealthDaynamicColor"
 );
 const NetMonthlyWealth = document.getElementById("NetMonthlyWealth");
+
+const totalSavings = document.querySelectorAll(".totalSavings");
+const totalSavingsAmount = document.getElementById("totalSavingsAmount");
 const calculateAmountForBills = () => {
   const inputValue = monthlyIncome.value;
   const tithesIncome = (parseFloat(inputValue.replace(/,/g, "")) / 100) * 10;
@@ -150,11 +153,26 @@ function calculateNetMonthWealth() {
     ? (dynamicBgTotalNetWorth.style.backgroundColor = "#ff06b7")
     : (dynamicBgTotalNetWorth.style.backgroundColor = "red");
 }
+// Total Savings
+function calculateTotalSavings() {
+  let total = 0;
 
+  totalSavings.forEach((input) => {
+    total += parseFloat(input.value.replace(/,/g, "")) || 0;
+  });
+  const totalComma = parseFloat(total)
+    .toFixed(2)
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    totalSavingsAmount.textContent = totalComma;
+}
+totalSavings.forEach((input) => {
+  input.addEventListener("input", calculateTotalSavings);
+});
 calculateAmountForBills();
 calculateTotal();
 calculateTotalVariableExpenses();
 calculateNetMonthWealth();
+calculateTotalSavings();
 /*  parseFloat(netAmountWealth) === 0
       ? ExpensesTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
       : total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); */
