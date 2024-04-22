@@ -34,11 +34,22 @@
     color: #ff06b7;
 }
 
-
+.calculate-topbar-imgbox{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
 .calculate-topbar-imgbox img {
     width: 300px;
     height: 250px;
     object-fit: contain;
+}
+.calculate-topbar-imgbox .hearts-logo {
+    width: 100px;
+    height: 60px;
+    object-fit: contain;
+    /* border: 1px solid #ff06b7; */
+    padding-bottom: 20px;
 }
 
 
@@ -243,13 +254,22 @@ hr {
 .NetMonthlyWealth {
     margin-top: 20px;
 }
-
+.dropBox-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 /* responsive design (min-width: 840px) and (max-width: 1150px) */
 @media screen and (min-width: 840px) and (max-width: 1150px) {
     .calculate-topbar-imgbox img {
         width: 250px;
     }
-
+    .dropBox-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
     .container-calculate {
         margin: 0px 10px;
     }
