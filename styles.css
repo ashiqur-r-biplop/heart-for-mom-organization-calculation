@@ -138,6 +138,7 @@ hr {
 
 .dollar-icon {
   margin: 0px 5px;
+  font-size: 22px !important;
 }
 
 .grid-col {
@@ -350,13 +351,17 @@ hr {
     justify-content: space-between;
     align-items: end;
   }
-
+  .drop-down-box {
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+  }
   .container-calculate {
     margin: 0px 10px;
   }
 
   .calculation-topbar {
-    font-size: 18px;
+    font-size: 2.2vw;
   }
 
   .income-tithes-savings {
@@ -415,6 +420,10 @@ hr {
     align-items: end;
   }
 
+  .dollar-icon {
+    margin: 0px 5px;
+    font-size: 14px !important;
+  }
   .calculate-topbar-imgbox img {
     width: 200px;
     height: 180px;
@@ -435,7 +444,7 @@ hr {
   }
 
   .calculation-topbar {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .income-tithes-savings {
