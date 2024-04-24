@@ -76,7 +76,7 @@ const calculateAmountForBills = () => {
   const totalComma = parseFloat(total)
     .toFixed(2)
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    netAmountForBills.textContent = totalComma;
+  netAmountForBills.textContent = totalComma;
   // Set the replaced value back to the input field
 
   calculateNetMonthWealth();
@@ -154,6 +154,20 @@ function calculateTotalSavings() {
 totalSavings.forEach((input) => {
   input.addEventListener("input", calculateTotalSavings);
 });
+//  reset function
+
+function resetFunction() {
+  const inputs = document.getElementsByTagName("input");
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].value = "";
+  }
+  calculateAmountForBills();
+  calculateTotal();
+  calculateTotalVariableExpenses();
+  calculateNetMonthWealth();
+  calculateTotalSavings();
+}
+
 calculateAmountForBills();
 calculateTotal();
 calculateTotalVariableExpenses();

@@ -52,11 +52,32 @@
   width: 150px;
 }
 
-.income-tithes-savings {
+.income-tithes-savings,
+.reset-button {
   background-color: #fff;
   padding: 40px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reset-button {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.reset-button button {
+  background-color: green;
+  border: none;
+  color: white;
+  font-family: serif;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .input-box {
@@ -184,6 +205,39 @@ hr {
   padding: 30px 20px 30px 20px;
   font-family: "Playfair Display", serif;
   font-size: 24px;
+  position: relative;
+}
+
+
+.craditBlance {
+  position: absolute;
+  width: 100%;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.craditBlance p {
+  font-size: 16px;
+}
+
+.craditBlance .dollar-icon {
+  font-size: 16px !important;
+  margin-left: 20px;
+}
+
+.craditBlance input {
+  position: absolute;
+  width: 120px !important;
+  height: auto !important;
+  border-radius: 5px 0px !important;
+  font-size: 16px !important;
+  padding: 6px !important;
+
+}
+
+.craditBlance input:focus {
+  border: 2px solid #b1862f !important;
 }
 
 .expenses-input-box input {
@@ -295,9 +349,31 @@ hr {
   .calculate-topbar-imgbox img {
     width: 250px;
   }
+
   .partnering img {
     width: 50px;
   }
+  .craditBlance {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .craditBlance p {
+    font-size: 12px !important;
+    margin-top: 25px;
+    margin-right: 5px;
+  }
+
+  .craditBlance .dollar-icon {
+    font-size: 12px !important;
+    margin: 0px !important;
+    display: none;
+  }
+
   .dropBox-container {
     display: flex;
     flex-direction: column;
@@ -342,20 +418,44 @@ hr {
   .calculate-topbar-imgbox img {
     width: 200px;
   }
+  .craditBlance {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .craditBlance p {
+    font-size: 12px !important;
+    margin-top: 25px;
+    margin-right: 5px;
+  }
+
+  .craditBlance .dollar-icon {
+    font-size: 12px !important;
+    margin: 0px !important;
+    display: none;
+  }
+
   .partnering img {
     width: 50px;
   }
+
   .dropBox-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: end;
   }
+
   .drop-down-box {
     flex-direction: column;
     justify-content: end;
     align-items: end;
   }
+
   .container-calculate {
     margin: 0px 10px;
   }
@@ -410,9 +510,49 @@ hr {
   .calculation-topbar {
     padding: 20px;
   }
+
+  .craditBlance {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .craditBlance p {
+    font-size: 12px !important;
+    margin-top: 25px;
+    margin-right: 5px;
+  }
+
+  .craditBlance .dollar-icon {
+    font-size: 12px !important;
+    margin: 0px !important;
+    display: none;
+  }
+
+  .Balance .dollar-icon {
+    margin-top: 20px !important;
+  }
+
+
+
+
+  .craditBlance input {
+    position: absolute;
+    width: 80px !important;
+    height: auto !important;
+    border-radius: 5px 0px !important;
+    font-size: 12px !important;
+    padding: 6px !important;
+
+  }
+
   .partnering img {
     width: 50px;
   }
+
   .dropBox-container {
     display: flex;
     flex-direction: column;
@@ -424,6 +564,7 @@ hr {
     margin: 0px 5px;
     font-size: 14px !important;
   }
+
   .calculate-topbar-imgbox img {
     width: 200px;
     height: 180px;
